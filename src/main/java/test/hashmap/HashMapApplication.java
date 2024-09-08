@@ -1,7 +1,6 @@
 package test.hashmap;
 
 
-import java.sql.SQLOutput;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -34,10 +33,10 @@ public class HashMapApplication {
 
     public static void printMap(Map<String, Integer> map) {
 
-        String result = map.entrySet()
-                .stream()
-                .map(entry -> entry.getKey() + " : " + entry.getValue())
-                .collect(Collectors.joining(", ", "{", "}"));
+        String result = map.entrySet() // возвращает набор пар ключ-значение из map
+                .stream()              // открываем поток для изменения
+                .map(entry -> entry.getKey() + " : " + entry.getValue()) // преобразуем каждый элемент потока и конкатенируем в строку
+                .collect(Collectors.joining(", ", "{", "}")); // добавляем знаки, чтобы вывести нужный результат
 
         // Выводим результат
         System.out.println(result);
